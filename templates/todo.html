@@ -1,0 +1,54 @@
+<title>To Do List</title>
+
+<style>
+    table,th,td {
+            border: 1px solid black;
+
+    }
+    .center {
+        margin-left: auto;
+        margin-right: auto; 
+    }
+    h1 {text-align:center;}
+    p {text-align:center;}
+</style>
+
+<h1>To Do List</h1>
+<h1>-------------------------</h1>
+
+<table class ="center" id="myTable">
+    <tr>
+        <th>Task</th>
+        <th>When It's Due</th>
+    </tr>
+</table>
+
+<p>Task Name <input type='text' id='taskname'> 
+Due Date <input type='text' id='duedate'></p>
+<p><button type='button' onclick="myFunction()">Add New Task</button></p>
+
+
+<p><label>Enter row of Task to remove. The top task is row 1</label><br>
+    <input type='text' id='taskid'></p>
+<p><button type='button' onclick="deleterow()">Remove Task</button></p>
+
+<script>
+
+function myFunction() {
+    
+        var table = document.getElementById("myTable");
+        var row = table.insertRow(1);
+        var cell0 = row.insertCell(0);
+        var cell1 = row.insertCell(1);
+
+        cell0.innerHTML = document.getElementById("taskname").value;
+        cell1.innerHTML = document.getElementById("duedate").value;
+  
+}
+
+function deleterow() {
+    var item = document.getElementById("taskid").value;
+    var table = document.getElementById("myTable").deleteRow(item);
+}
+
+</script>
